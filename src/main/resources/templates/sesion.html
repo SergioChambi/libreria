@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login Form Design || Future Web</title>
+        <link rel="stylesheet" href="./css/estilo_sesion.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
+    </head>
+
+    <body>
+        <div class="login_container">
+            <div class="image_container">
+                <img src=https://drive.google.com/uc?export=view&id=1iyKZ5h_2nzBz_lGkMKFtj_d7teT6jADO />
+            </div>
+            <div class="login_form_container">
+                <div class="container">
+                    <form th:action="@{/logincheck}" method="POST">
+                        <h3>Login</h3>
+                        <div class="social_media">
+                            <a href="#">
+                                <i class="fab fa-google"></i>
+                                <span>Login with google</span>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-facebook-f">
+                                </i>
+                                <span>Login with facebook</span>
+                            </a>
+                        </div>
+                        <div class="input_container">
+                            <input type="text" name="username" placeholder="Email" />
+                            <i class="fas fa-envelope"></i>
+                            <div class="border_animation"></div>
+                        </div>
+                        <div class="input_container">
+                            <input type="password" name="password" placeholder="Password" />
+                            <i class="fas fa-lock"></i>
+                            <div class="border_animation"></div>
+                        </div>
+                        <button type="submit">Inicia Sesión</button>
+                    </form>
+                    <div class="create_new_account"> no tenés cuenta? <a th:href="@{/registro}">REGISTRATE</a>
+
+                    </div>
+                    <p th:if="${error!= null}" th:text="${error}" style="color: red"></p>
+                    <p th:if="${logout!= null}" th:text="${logout}" style="color: green"></p>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

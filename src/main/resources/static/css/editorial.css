@@ -1,0 +1,152 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#header {
+    width: 100%;
+    height: 60px;
+    background-color: #494646;
+}
+
+#header .logueo {
+    float: right;
+}
+
+#header .logueo a {
+    font-family: sans-serif;
+    border: none;
+    position: relative;
+    background-color: gray;
+    display: inline-block;
+    padding: 15px;
+    color: #fff;
+    font-size: 15px;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+/* encabezado buscar */
+.form {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+
+}
+
+.busqueda {
+    display: flex;
+    position: absolute;
+    margin-top: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input {
+    outline: none;
+    font-size: 18px;
+    width: 325px;
+    text-align: center;
+}
+
+.busqueda input[type="submit"] {
+    height: 35px;
+    background: gray;
+    font-family: sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    cursor: pointer;
+}
+
+.busqueda input[type="submit"]:hover {
+    background: white;
+    color: black;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100wv;
+    height: 100vh;
+    
+}
+
+.contenedor {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 600px;
+    height: 250px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 0 20px rgb(64, 55, 196);
+
+}
+
+
+.contenedor label {
+    display: block;
+    font-size: 20px;
+}
+
+.contenedor h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+
+.contenedor input[type="text"] {
+    width: 400px;
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    outline: none;
+    height: 25px;
+    color: #000;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.contenedor input[type="submit"] {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 18px;
+    border-radius: 25px;
+    background: rgb(64, 55, 196);
+    border-color: white;
+    color: white;
+    
+}
+
+.contenedor input[type="submit"]:hover {
+    background: #fff;
+    color: rgb(64, 55, 196);
+}
+
+.foot {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.foot a {
+    text-decoration: none;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: bold;
+
+}

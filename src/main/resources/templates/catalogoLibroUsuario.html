@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/libro-catalogo.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+       
+        
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div class="table_header">
+            <a href="">LIBRERIA</a>
+            <div class="add_new"> <a th:href="@{/libro/registro}">Agregar</a> </div>
+        </div>
+        <div class="table_section">
+            <table class="catalo">
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Titulo</th>
+                        <th>ISBN</th>
+                        <th>Año</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Género</th>
+                        <th>Editorial</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody  th:each="libro : ${libros}">
+                    <tr>
+                        <td><img th:if="${libro.foto != null}" th:src="${'/foto/libro/' + libro.id}"/>
+                        </td>
+                        <td th:text="${libro.titulo}"></td>
+                        <td th:text="${libro.isbn}"></td>
+                        <td th:text="${libro.anio}"></td>
+                        <td th:text="${libro.autor.nombre}"></td>
+                        <td th:text="${libro.autor.apellido}"></td>
+                        <td th:text="${libro.genero.nombre}"</td>
+                        <td th:text="${libro.editorial.nombre}"></td>
+                        <td> <a th:href="@{/libro/modificar_libro/__${libro.id}__}"><i class="fa-solid fa-pen-to-square"></i></a> <a><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+    </body>
+
+</html>

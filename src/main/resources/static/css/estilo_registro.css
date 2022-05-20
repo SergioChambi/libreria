@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'New Tegomin', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    background-color: #E6E7E8;
+}
+
+.registration-form {
+    position: relative;
+    height: 500px;
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(85, 80, 80);
+}
+
+h1 {
+    color: #000;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+}
+
+.input-box i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 15px;
+    color: rgb(85, 80, 80);
+}
+
+input {
+    margin: 10px 0;
+    padding: 7px 20px;
+    width: 100%;
+    padding-left: 35px;
+    border-radius: 10px;
+    outline: none;
+    background: transparent;
+    color: #000;
+    font-size: 15px;
+    border: 1px solid rgb(85, 80, 80);
+}
+
+button {
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid rgb(85, 80, 80);
+     color: rgb(85, 80, 80);
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.social-media {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.social-media a {
+    height: 50px;
+    width: 50px;
+    border: 1px solid rgb(85, 80, 80);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(85, 80, 80);
+    font-size: 18px;
+}
+

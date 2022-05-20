@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/error-estilo.css">
+    <script src="https://kit.fontawesome.com/178bd61f9b.js" crossorigin="anonymous"></script>
+   
+    <title>Document</title>
+
+</head>
+
+<body>
+    <header>
+        <div id="header">
+            
+            <nav class="logueo">
+                <a th:href="@{/login}">Registro/Entrar</a>
+            </nav>
+        </div>
+
+    </header>
+    <div class="error">
+    <p class="number" th:text="${codigo}"></p>
+    <p class="text" th:text="${mensaje == null ? 'Intenta nuevamente' : mensaje}"></p>
+    </div> 
+    
+</body>
+
+</html>

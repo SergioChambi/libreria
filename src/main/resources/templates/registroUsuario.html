@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration Form Design || Coding Zone</title>
+        <link rel="stylesheet" href="./css/estilo_registro.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    </head>
+
+    <body>
+        <div class="registration-form">
+
+            <form th:action="@{/registrar}" method="POST">
+                <h1>Registration</h1>
+                <div class="input-box"> <i class="fas fa-user"></i><input type="text" name="nombre" th:value="${nombre}" placeholder="Ingrese su nombre"></div>
+                <div class="input-box"> <i class="fas fa-user"></i><input type="text" name="apellido" th:value="${apellido}" placeholder="Ingrese su apellido"> </div>
+                <div class="input-box"> <i class="fas fa-envelope"></i><input type="email" name="mail" th:value="${mail}" placeholder="Ingrese su mail"> </div>
+                <div class="input-box"> <i class="fas fa-lock"></i><input type="password" name="clave1" th:value="${clave1}" placeholder="Ingrese la contraseña"> </div>
+                <div class="input-box"> <i class="fas fa-lock"></i><input type="password" name="clave2" th:value="${clave2}" placeholder="Repita la contraseña"></div> 
+                <p th:if="${error!= null}" th:text="${error}" style="color: red"></p>
+                <p th:text="${success}" style="color: green"></p>
+                <button type="submit">Register Now</button>
+            </form>
+            <div class="social-media"> <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i class="fab fa-google"></i></a>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

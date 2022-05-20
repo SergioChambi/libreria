@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/estilo_libro.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div id="header">
+            <div class="form">
+                <form action="" class="busqueda">
+                    <input type="text" placeholder="Ingrese Titulo, ISBN, Autor o Editorial">
+                    <input type="submit" value="Buscar">
+                </form>
+            </div>
+
+            <nav class="logueo">
+                <a href="./sesion.html">Cerrar Sesión</a>
+            </nav>
+        </div>
+
+    </header>
+    <div class="main">
+
+        <div class="contenedor">
+
+            <form action="" method="post" enctype="multipart/form-data">
+
+                <h2>INGRESE DATOS DEL LIBRO</h2>
+
+                <label>Titulo</label>
+                <input type="text" size="15" placeholder="Ingrese el Titulo" required>
+
+                <label>ISBN</label>
+                <input type="text" size="15" placeholder="Ingrese el ISBN" required>
+
+                <label>Año</label>
+                <input type="text" size="15" placeholder="Ingrese el año" required>
+
+                <label for="">Género</label>
+                <select name="" required>
+                    <option value="">Comedia</option>
+                    <option value="">Terror</option>
+                    <option value="">Drama</option>
+                    <option value="">Acción</option>
+                    <option value="">Novela</option>
+                    <option value="">Otros</option>
+                </select>
+
+
+                <label for="">Autor</label>
+                <select name="" id="" required>
+                    <option value=""></option>
+                </select>
+
+
+                <label for="">Editorial</label>
+                <select name="" id="" required>
+                    <option value=""></option>
+                </select>
+                <label for="">Foto</label>
+                <input type="file">
+                <div class="foot">
+                    <a href="./crear_autor.html">Agregar Autor</a>
+                    <a href="./crear_editorial.html">Agregar Editorial</a>
+                    <a href="./index_usuario.html">Volver</a>
+                </div>
+                <input type="submit" value="Guardar">
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>

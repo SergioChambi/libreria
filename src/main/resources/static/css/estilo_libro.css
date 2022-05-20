@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt&display=swap');
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rokkitt', serif;
+    background: linear-gradient(45deg, #583ff6, #243b55);
+}
+
+.Login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 40px;
+    background: linear-gradient(-45deg, #071a52, #243b55);
+    box-sizing: border-box;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+}
+
+.Login-box h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.Login-box .user-box {
+    position: relative;
+}
+
+.Login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: white;
+    border: none;
+    margin-bottom: 30px;
+    outline: none;
+    background: transparent;
+    border-bottom: 2px solid white;
+}
+
+.Login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: white;
+    pointer-events: none;
+    transition: 0.6s;
+}
+
+.Login-box .user-box input:focus~label,
+.Login-box .user-box input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+}
+
+.Login-box button {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.Login-box button:hover {
+    background-color: #03e9f4;
+    color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 5px #03e9f4, 0 0 30px #03e9f4, 0 0 60px #03e9f4;
+}
+
+.socialmedia-icons {
+    font-size: 25px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.fa-facebook-f:hover {
+    color: #1d57d4;
+    transform: scale(1.5);
+    transition: 0.5s linear;
+}
+
+.fa-google:hover {
+    color: #F4B400;
+    transform: scale(1.5);
+    transition: 0.5s linear;
+}
+
+.fa-linkedin-in:hover {
+    color: #0e76a8;
+    transform: scale(1.5);
+    transition: 0.5s linear;
+}
+/*
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#header {
+    width: 100%;
+    height: 60px;
+    background-color: #494646;
+}
+
+#header .logueo {
+    float: right;
+}
+
+#header .logueo a {
+    font-family: sans-serif;
+    border: none;
+    position: relative;
+    background-color: gray;
+    display: inline-block;
+    padding: 15px;
+    color: #fff;
+    font-size: 15px;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+ encabezado buscar 
+.form {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+
+}
+
+.busqueda {
+    display: flex;
+    position: absolute;
+    margin-top: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input {
+    outline: none;
+    font-size: 18px;
+    width: 325px;
+    text-align: center;
+}
+
+.busqueda input[type="submit"] {
+    height: 35px;
+    background: gray;
+    font-family: sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    cursor: pointer;
+
+}
+
+.busqueda input[type="submit"]:hover {
+    background: white;
+    color: black;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100wv;
+    height: 100vh;
+    
+}
+
+.contenedor {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 600px;
+    height: 600px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 0 20px rgb(64, 55, 196);
+
+}
+
+
+.contenedor label {
+    display: block;
+    font-size: 20px;
+}
+
+.contenedor h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+
+.contenedor input[type="text"] {
+    width: 400px;
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    outline: none;
+    height: 25px;
+    color: #000;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.contenedor input[type="file"] {
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.contenedor select {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.contenedor input[type="submit"] {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 18px;
+    border-radius: 25px;
+    background: rgb(64, 55, 196);
+    border-color: white;
+    color: white;
+    
+}
+
+.contenedor input[type="submit"]:hover {
+    background: #fff;
+    color: rgb(64, 55, 196);
+}
+
+.foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.foot a {
+    text-decoration: none;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: bold;
+
+}*/

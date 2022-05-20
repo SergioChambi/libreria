@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="https://kit.fontawesome.com/178bd61f9b.js" crossorigin="anonymous"></script>
+
+        <title>Document</title>
+
+    </head>
+
+    <body>
+    
+        <header>
+            <div id="header">
+                <div class="form">
+                    <form action="" class="busqueda">
+                        <input type="text" placeholder="Ingrese Titulo, ISBN, Autor o Editorial">
+                        <input type="submit" value="Buscar">
+                    </form>
+                </div>
+
+                <nav class="logueo">
+                    <a th:href="@{/login}">Registro/Entrar</a>
+                </nav>
+            </div>
+
+        </header>
+        <div class="div">
+            <div class="cont-left">
+                <nav>
+                    <a th:href="@{/autores}">AUTORES</a>
+                    <a th:href="@{/editoriales}">EDITORIALES</a>
+                    <a th:href="@{/libros}">LIBROS</a>
+                    <a th:href="@{/registro}">REGISTRATE</a>
+                </nav>
+
+            </div>
+
+            <div class="cont-right">
+                <div class="cont-top">
+                    <!-- aca va solo una imagen -->
+                </div>
+                <div class="genero">
+                    <a href="#">COMEDIA</a>
+                    <a href="#">TERROR</a>
+                    <a href="#">DRAMA</a>
+                    <a href="#">ACCION</a>
+                    <a href="#">NOVELA</a>
+                    <a href="#">OTROS</a>
+
+                </div>
+
+                <div class="table">
+
+                    <div class="table_section">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Foto</th>
+                                    <th>Titulo</th>
+                                    <th>ISBN</th>
+                                    <th>Año</th>
+                                    <th>Autor</th>
+                                    <th>Género</th>
+                                    <th>Editorial</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody th:each="libro : ${libros}">
+                                <tr>
+                                    <td><img th:if="${libro.foto != null}" th:src="${'/foto/libro/' + libro.id}"/>
+                                    </td>
+                                    <td th:text="${libro.titulo}"></td>
+                                    <td th:text="${libro.isbn}"></td>
+                                    <td th:text="${libro.anio}"></td>
+                                    <td th:text="${libro.autor.nombre}"></td>
+                                    <td th:text="${libro.genero.nombre}"</td>
+                                    <td th:text="${libro.editorial.nombre}"></td>
+                                    
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+    </body>
+
+</html>

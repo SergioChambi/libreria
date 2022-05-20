@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+        <script src="https://kit.fontawesome.com/178bd61f9b.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./css/libro_catalogo.css">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div class="table_header">
+            <a th:href="@{/}">LIBRERIA</a>
+           
+        </div>
+        <div class="table_section">
+            <table class="catalo">
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Titulo</th>
+                        <th>ISBN</th>
+                        <th>Año</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Género</th>
+                        <th>Editorial</th>
+                     
+                    </tr>
+                </thead>
+                <tbody  th:each="libro : ${libros}">
+                    <tr>
+                        <td><img th:if="${libro.foto != null}" th:src="${'/foto/libro/' + libro.id}"/>
+                        </td>
+                        <td th:text="${libro.titulo}"></td>
+                        <td th:text="${libro.isbn}"></td>
+                        <td th:text="${libro.anio}"></td>
+                        <td th:text="${libro.autor.nombre}"></td>
+                        <td th:text="${libro.autor.apellido}"></td>
+                        <td th:text="${libro.genero.nombre}"</td>
+                        <td th:text="${libro.editorial.nombre}"></td>
+                        
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+    </body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+        <link rel="stylesheet" href="./css/autor_catalogo.css" />
+        <title>Document</title>
+    </head>
+
+    <body>
+
+
+        <div class="table_header">
+            <a href="">LIBRERIA</a>
+           
+        </div>
+        <div class="table_section">
+            <table class="catalo">
+                <thead>
+                    <tr>
+                        <th>Nombre del Autor</th>
+                        <th>Apellido del Autor</th>
+                      
+                    </tr>
+                </thead>
+                <tbody th:each="autor : ${autores}">
+                    <tr>
+                        <td th:text="${autor.nombre}"></td>
+                        <td th:text="${autor.apellido}"></td>
+                       
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+
+</html>

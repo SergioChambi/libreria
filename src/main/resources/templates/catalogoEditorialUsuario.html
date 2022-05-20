@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+        <script src="https://kit.fontawesome.com/178bd61f9b.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./css/editorial_catalogo.css">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div class="table_header">
+            <a th:href="@{/}">LIBRERIA</a>
+            <div class="add_new"> <a th:href="@{/editorial/registro}">Agregar</a> </div>
+        </div>
+        <div class="table_section">
+            <table class="catalo">
+                <thead>
+                    <tr>
+                        <th>Nombre de la Editorial</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody th:each="editorial: ${editoriales}">
+                    <tr>
+                        <td th:text="${editorial.nombre}"></td>
+                        <td> <a th:href="@{/editorial/editar_editorial/__${editorial.id}__}"><i class="fa-solid fa-pen-to-square"></i></a> <a><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+
+</html>

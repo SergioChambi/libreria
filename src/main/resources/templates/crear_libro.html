@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/estilo_libro.css">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <header>
+            <div id="header">
+                <div class="form">
+                    <form action="" class="busqueda">
+                        <input type="text" placeholder="Ingrese Titulo, ISBN, Autor o Editorial">
+                        <input type="submit" value="Buscar">
+                    </form>
+                </div>
+
+                <nav class="logueo">
+                    <a th:href="@{/logout}">Cerrar Sesión</a>
+                </nav>
+            </div>
+
+        </header>
+        <div class="main">
+
+            <div class="contenedor">
+
+                <form th:action="@{/libro/registrar_libro}" method="POST" enctype="multipart/form-data">
+
+                    <h2>INGRESE DATOS DEL LIBRO</h2>
+                    <p th:if="${error!= null}" th:text="${error}" style="color: red"></p>
+                    <label>Titulo</label>
+                    <input type="text" name="titulo" placeholder="Ingrese el Titulo" required>
+
+                    <label>ISBN</label>
+                    <input type="text" name="isbn" placeholder="Ingrese el ISBN" required>
+
+                    <label>Año</label>
+                    <input type="text" name="anio" placeholder="Ingrese el año" required>
+
+                    <label>Género</label>
+                    <select name="idGenero" required>
+                        
+                        <option th:each="genero:${generos}" th:value="${genero.id}" th:text="${genero.nombre}"></option>
+       
+                    </select>
+
+
+                    <label>Autor</label>      
+                    <select name="idAutor" required>
+                        
+                        <option th:each="autor:${autores}" th:value="${autor.id}" th:text="${autor.nombre}"></option>
+                        
+                    </select>
+
+
+                    <label>Editorial</label>
+                    <select name="idEditorial" required>
+                        
+                        <option th:each="editorial:${editoriales}" th:value="${editorial.id}" th:text="${editorial.nombre}"></option>
+                        
+                    </select>
+                    
+                    <label>Foto</label>
+                    <input type="file" name="archivo" >
+                    <div class="foot">
+                        <a th:href="@{/autor/registro}">Agregar Autor</a>
+                        <a th:href="@{/editorial/registro}">Agregar Editorial</a>
+                        <a th:href="@{/inicio}">Salir</a>
+                    </div>
+                    <input type="submit" value="Guardar">
+                </form>
+            </div>
+        </div>
+
+    </body>
+
+</html>

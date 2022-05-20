@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/autor.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div id="header">
+            <div class="form">
+                <form action="" class="busqueda">
+                    <input type="text" placeholder="Ingrese Titulo, ISBN, Autor o Editorial">
+                    <input type="submit" value="Buscar">
+                </form>
+            </div>
+
+            <nav class="logueo">
+                <a th:href="@{/logout}">Cerrar Sesión</a>
+            </nav>
+        </div>
+
+    </header>
+    <div class="main">
+        <div class="contenedor">
+
+            <form th:action="@{/autor/registrar_autor}" method="POST">
+
+                <h2>INGRESE DATOS DEL AUTOR</h2>
+
+                <label>Nombre</label>
+                <input type="text"  name="nombre" placeholder="Ingrese el nombre" required>
+
+                <label>Apellido</label>
+                <input type="text"  name="apellido" placeholder="Ingrese el apellido" required>
+                
+                <input type="submit" value="Guardar">
+
+                <div class="foot">
+                    <a href="">Volver</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>
