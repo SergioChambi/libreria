@@ -49,8 +49,8 @@ public class EditorialControlador {
         return "editar_editorial";
     }
     
-    @PostMapping("/editar_editorial/{id}")
-    public String editar(@PathVariable String id, @RequestParam String nombre) {
+    @PostMapping("/editar_editorial")
+    public String editar(@RequestParam String id, @RequestParam String nombre) {
         try {
             editorialServicio.modificar(id, nombre);
             return "catalogo_editorial";

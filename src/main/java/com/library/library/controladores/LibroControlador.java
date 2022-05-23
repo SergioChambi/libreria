@@ -4,7 +4,6 @@ import com.library.library.entidades.Autor;
 import com.library.library.entidades.Editorial;
 import com.library.library.entidades.Genero;
 import com.library.library.entidades.Libro;
-import com.library.library.entidades.Usuario;
 
 import com.library.library.errores.ErrorServicio;
 import com.library.library.repositorios.AutorRepositorio;
@@ -12,7 +11,6 @@ import com.library.library.repositorios.EditorialRepositorio;
 import com.library.library.repositorios.GeneroRepositorio;
 import com.library.library.servicios.LibroServicio;
 import java.util.List;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -48,21 +46,23 @@ public class LibroControlador {
     @GetMapping("/registro")
     public String registro(ModelMap modelo) {
         List<Autor> autores = autorRepositorio.findAll();
-        List<Editorial> editoriales = editorialRepositorio.findAll();
-        List<Genero> generos = generoRepositorio.findAll();
-
         modelo.put("autores", autores);
+
+        List<Editorial> editoriales = editorialRepositorio.findAll();
         modelo.put("editoriales", editoriales);
+
+        List<Genero> generos = generoRepositorio.findAll();
         modelo.put("generos", generos);
 
         return "crear_libro";
     }
 
     @PostMapping("/registrar_libro")
-    public String guardar(ModelMap modelo, MultipartFile archivo, @RequestParam String idAutor, @RequestParam String idGenero, @RequestParam String idEditorial,
+    public String guardar(ModelMap modelo, MultipartFile archivo, @RequestParam String idAutor, @RequestParam String idEditorial, @RequestParam String idGenero,
             @RequestParam Long isbn, @RequestParam String titulo, @RequestParam Integer anio) {
         try {
-            libroServicio.Registrar(archivo, idAutor, idGenero, idEditorial, isbn, titulo, anio);
+
+            libroServicio.Registrar(archivo, idAutor, idEditorial, idGenero, isbn, titulo, anio);
 
             return "crear_libro";
         } catch (ErrorServicio ex) {
@@ -74,25 +74,32 @@ public class LibroControlador {
     @GetMapping("/modificar_libro/{id}")
     public String modificar(@PathVariable String id, ModelMap modelo) throws ErrorServicio {
 
-        modelo.put("libro", libroServicio.BuscarPorId(id));
         List<Autor> autores = autorRepositorio.findAll();
-        List<Editorial> editoriales = editorialRepositorio.findAll();
-        List<Genero> generos = generoRepositorio.findAll();
         modelo.put("autores", autores);
+
+        List<Editorial> editoriales = editorialRepositorio.findAll();
         modelo.put("editoriales", editoriales);
+
+        List<Genero> generos = generoRepositorio.findAll();
         modelo.put("generos", generos);
+
+       
+        modelo.put("libro", libroServicio.BuscarPorId(id));
+
         return "editar_libro";
     }
- 
+
     @PostMapping("/modificar_libro/{id}")
     public String modificar(@PathVariable String id, MultipartFile archivo, @RequestParam String idAutor, @RequestParam String idEditorial, @RequestParam String idGenero, @RequestParam Long isbn, @RequestParam String titulo,
             @RequestParam Integer anio) {
+      
         try {
-            libroServicio.modificar(archivo, id, idAutor, idEditorial,idGenero, isbn, titulo, anio);
+            
+            libroServicio.modificar(id, archivo, idAutor, idEditorial, idGenero, isbn, titulo, anio);
 
             return "catalogo_libros";
         } catch (ErrorServicio ex) {
-        
+
             return "editar_libro";
         }
     }
@@ -102,6 +109,6 @@ public class LibroControlador {
         List<Libro> libroLista = libroServicio.listarLibros();
         modelo.put("libros", libroLista);
         return "catalogoLibroUsuario";
-    } 
+    }
 
 }

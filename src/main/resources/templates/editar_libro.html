@@ -29,7 +29,7 @@
 
             <div class="contenedor">
 
-                <form th:action="@{/libro/modificar_libro/__${libro.id}__}" method="POST" enctype="multipart/form-data">
+                <form th:action="@{/libro/modificar_libro/__${id}__}" method="POST" enctype="multipart/form-data">
                     <input hidden th:value="${id}" name="id" >
 
                     <h2>INGRESE DATOS DEL LIBRO</h2>

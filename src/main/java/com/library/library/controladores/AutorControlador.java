@@ -49,8 +49,8 @@ public class AutorControlador {
         return "editar_autor";
     }
 
-    @PostMapping("/editar_autor/{id}")
-    public String editar(@PathVariable String id, @RequestParam String nombre, @RequestParam String apellido) {
+    @PostMapping("/editar_autor")
+    public String editar(@RequestParam String id, @RequestParam String nombre, @RequestParam String apellido) {
         try {
             autorServicio.modificar(id, nombre, apellido);
             return "catalogo_autor";

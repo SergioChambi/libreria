@@ -28,7 +28,7 @@
     <div class="main">
         <div class="contenedor">
 
-            <form th:action="@{/autor/editar_autor/__${autor.id}__}" method="POST">
+            <form th:action="@{/autor/editar_autor}" method="POST">
                   <input hidden th:value="${id}" name="id" >
 
                 <h2>INGRESE DATOS DEL AUTOR</h2>
@@ -42,7 +42,7 @@
                 <input type="submit" value="Guardar">
 
                 <div class="foot">
-                    <a href="./index_usuario.html">Volver</a>
+                    <a href="#">Volver</a>
                 </div>
 
             </form>

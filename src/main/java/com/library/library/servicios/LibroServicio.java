@@ -40,8 +40,8 @@ public class LibroServicio {
     @Transactional
     public void Registrar(MultipartFile archivo, String idAutor, String idEditorial, String idGenero, Long isbn, String titulo, Integer anio) throws ErrorServicio {
         Genero genero = generoRepositorio.getOne(idGenero);
-        Autor autor = autorRepositorio.findById(idAutor).get();
-        Editorial editorial = editorialRepositorio.findById(idEditorial).get();
+        Autor autor = autorRepositorio.getOne(idAutor);
+        Editorial editorial = editorialRepositorio.getOne(idEditorial);
         validar(isbn, titulo, anio, genero);
         Libro libro = new Libro();
         libro.setIsbn(isbn);
@@ -59,10 +59,10 @@ public class LibroServicio {
     }
 
     @Transactional
-    public void modificar(MultipartFile archivo, String idLibro, String idAutor, String idEditorial, String idGenero, Long isbn, String titulo, Integer anio) throws ErrorServicio {
+    public void modificar(String idLibro, MultipartFile archivo, String idAutor, String idEditorial, String idGenero, Long isbn, String titulo, Integer anio) throws ErrorServicio {
 
-        Autor autor = autorRepositorio.findById(idAutor).get();
-        Editorial editorial = editorialRepositorio.findById(idEditorial).get();
+        Autor autor = autorRepositorio.getOne(idAutor);
+        Editorial editorial = editorialRepositorio.getOne(idEditorial);
         Genero genero = generoRepositorio.getOne(idGenero);
         validar(isbn, titulo, anio, genero);
 
@@ -75,13 +75,15 @@ public class LibroServicio {
             libro.setGenero(genero);
             libro.setAutor(autor);
             libro.setEditorial(editorial);
-
-            String idFoto = null;
-            if (libro.getFoto() != null) {
-                idFoto = libro.getFoto().getId();
+            if (!archivo.isEmpty()) {
+                String idFoto = null;
+                if (libro.getFoto() != null) {
+                    idFoto = libro.getFoto().getId();
+                }
+                Foto foto = fotoServicio.actualizarFoto(idFoto, archivo);
+                libro.setFoto(foto);
             }
-            Foto foto = fotoServicio.actualizarFoto(idFoto, archivo);
-            libro.setFoto(foto);
+
             libroRepositorio.save(libro);
         } else {
             throw new ErrorServicio("No se encontro el libro solicitado");
@@ -101,7 +103,7 @@ public class LibroServicio {
 
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<Libro> listarLibros() {
         return libroRepositorio.findAll();
     }
@@ -132,7 +134,7 @@ public class LibroServicio {
 
         }
         if (genero == null) {
-            throw new ErrorServicio("No se encontró rl género solicitado");
+            throw new ErrorServicio("No se encontró el género solicitado");
         }
     }
 }
